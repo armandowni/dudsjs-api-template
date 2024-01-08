@@ -1,0 +1,6 @@
+.ormconfig.js
+dist
+node_modules
+.env.local
+package-lock.json
+yarn.lock
