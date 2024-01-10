@@ -9,11 +9,13 @@ $ yarn install
 ```
 
 ## Configuration env
+
 This step build Configuration env local or dev
+
 ```bash
 # 1. copy .env
 # 2. rename the .env copy to .env.local
-# 3. fill the variable inside .env.local with your database config  
+# 3. fill the variable inside .env.local with your database config
 ```
 
 ## Usage
@@ -40,4 +42,15 @@ For run at production environment
 $ npm run start
 # or use
 $ yarn start
+```
+
+## Note
+
+This template has two option, rxjs and normal way
+
+```bash
+# if you want to see normal way you can see in this file
+$ /actions/test
+# if you want to see rxjs way you can see in this file
+$ /actions/user
 ```
