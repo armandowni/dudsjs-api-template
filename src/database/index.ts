@@ -9,7 +9,7 @@ export default new DataSource({
   entities: [Test, User],
   extra: {
     ssl: {
-      rejectUnauthorized: true,
+      rejectUnauthorized: false,
     },
   },
 });
