@@ -1,7 +1,7 @@
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TrackedEntity } from "../common/tracked";
 
-@Entity("test", { schema: "dudsapi" })
+@Entity({ name: "test", schema: "dudsapi" })
 export class Test extends TrackedEntity {
   @PrimaryGeneratedColumn("increment")
   id: number;

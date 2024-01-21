@@ -1,13 +1,17 @@
-import { DataSource } from "typeorm";
-import database from ".";
+import "reflect-metadata";
+import { DataSource, DataSourceOptions } from "typeorm";
+import { Test } from "./entities/test";
+import { CONFIG } from "../config";
+import { User } from "./entities/user";
 
-export default (port) =>
-  database
-    .initialize()
-    .then((connection: DataSource) => {
-      console.log(`Database ${connection?.options.database} is connected`);
-      console.log(`This API ready in http://0.0.0.0:${port}`);
-    })
-    .catch((err) =>
-      console.error("Error during Data Source initialization:", err)
-    );
+const configDB: DataSourceOptions = {
+  ...CONFIG.DBS.postgresql,
+  entities: [Test, User],
+  extra: {
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  },
+};
+
+export const datasource = new DataSource(configDB);

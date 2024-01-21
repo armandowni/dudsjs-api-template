@@ -1,4 +1,4 @@
-const path = require("path");
+import * as path from "path";
 
 require("dotenv").config({
   path: path.resolve(process.cwd(), ".env.local"),
@@ -16,9 +16,9 @@ export const CONFIG = {
       username: process.env.DB_CONFIG_USER || "",
       password: process.env.DB_CONFIG_PASSWORD || "",
       database: process.env.DB_CONFIG_DB || "",
+      synchronize: true,
+      logging: false,
     } as any,
-    synchronize: true,
-    logging: false,
   },
 
   DEV: {

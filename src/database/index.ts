@@ -1,15 +1,16 @@
-import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { Test } from "./entities/test";
-import { CONFIG } from "../config";
-import { User } from "./entities/user";
+import { datasource } from "./datasource";
 
-export default new DataSource({
-  ...CONFIG.DBS.postgresql,
-  entities: [Test, User],
-  extra: {
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
-});
+async function AppDataSource(port: number) {
+  await datasource
+    .initialize()
+    .then((connection) => {
+      // console.log(`Database ${connection?.options?.database} is connected`);
+      console.log(`This API ready in http://0.0.0.0:${port}`);
+    })
+    .catch((err) =>
+      console.error("Error during Data Source initialization:", err)
+    );
+  return;
+}
+export const initDataSource = AppDataSource;

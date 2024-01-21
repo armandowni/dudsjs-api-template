@@ -2,7 +2,7 @@ import express, { Application, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import router from "./routes";
 import { json, urlencoded } from "body-parser";
-import appDataSource from "./database/datasource";
+import { initDataSource } from "./database/index";
 import { routeExists, routesList } from "./util/routes";
 import swaggerUi from "swagger-ui-express";
 import specs from "./swagger";
@@ -44,5 +44,5 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.listen(port, async () => {
   console.log("Starting API, Please wait for a moment...");
 
-  await appDataSource(port);
+  await initDataSource(port);
 });
