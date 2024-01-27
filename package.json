@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc",
     "start:dev": "nodemon -e js,ts --watch src --exec \"tsc && node .\"",
-    "start": "node ."
+    "start": "node .",
+    "migration:generate": "npx typeorm-ts-node-esm migration:generate ./api/src/migration/migration -d ./src/database/datasource.ts",
+    "migration:run": "npx typeorm-ts-node-esm schema:sync -d ./src/database/datasource.ts"
   },
   "author": "armandowni",
   "license": "MIT",
