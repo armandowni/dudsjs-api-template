@@ -10,7 +10,6 @@
     "migration:generate": "npx typeorm-ts-node-esm migration:generate ./api/src/migration/migration -d ./src/database/datasource.ts",
     "migration:run": "npx typeorm-ts-node-esm schema:sync -d ./src/database/datasource.ts"
   },
-  "author": "armandowni",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
